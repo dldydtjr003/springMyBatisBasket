@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zeus.mapper.BasketMapper"></mapper>
+<mapper namespace="com.zeus.mapper.UserMapper">
+
+    <insert id="create">
+        INSERT INTO USER_INFO (NO, ID, PASSWORD, NAME, EMAIL, PHONE)
+        VALUES (user_seq.NEXTVAL, #{id}, #{password}, #{name}, #{email}, #{phone})
+    </insert>
+
+    <select id="list" resultType="com.zeus.domain.Users">
+        SELECT NO, ID, NAME, EMAIL, PHONE 
+        FROM USER_INFO 
+        ORDER BY NO DESC
+    </select>
+
+    <select id="read" resultType="com.zeus.domain.Users">
+        SELECT * FROM USER_INFO WHERE NO = #{no}
+    </select>
+
+    <update id="update">
+        UPDATE USER_INFO 
+        SET PASSWORD = #{password}, NAME = #{name}, EMAIL = #{email}, PHONE = #{phone}
+        WHERE NO = #{no}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM USER_INFO WHERE NO = #{no}
+    </delete>
+
+</mapper>
