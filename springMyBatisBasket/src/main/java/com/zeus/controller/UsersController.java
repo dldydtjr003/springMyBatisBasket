@@ -44,7 +44,7 @@ public class UsersController {
 		model.addAttribute("message","회원가입 실패했습니다.");
 		return "user/failed";
 	}
-	@GetMapping("/list")
+	@GetMapping("/userList")
 	public String userList(Model model, Users user){
 		try {
 			List<Users> userList = userService.list();
@@ -62,7 +62,7 @@ public class UsersController {
 			if(user != null) {
 				model.addAttribute("user",user);
 				model.addAttribute("message","조회가 성공했습니다.");
-				return "user/userDetail";
+				return "user/detail";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
