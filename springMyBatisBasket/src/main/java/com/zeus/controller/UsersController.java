@@ -76,7 +76,7 @@ public class UsersController {
 			int count = userService.delete(user);
 			if(count > 0) {
 				model.addAttribute("message","삭제 성공했습니다");
-				return "user/delete";
+				return "user/success";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,7 +97,7 @@ public class UsersController {
 			e.printStackTrace();
 		}
 		model.addAttribute("message","정보가 없습니다.");
-		return "user/filed";
+		return "user/failed";
 	}
 	@PostMapping("/update")
 	public String userUpdate(Model model, Users user) {
