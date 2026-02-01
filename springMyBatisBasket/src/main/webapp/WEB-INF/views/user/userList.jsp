@@ -31,7 +31,7 @@
 <div class="list-container">
     <h2>회원 관리 리스트</h2>
     
-    <a href="/insertForm" class="btn btn-add">신규 회원 등록</a>
+    <a href="/user/insertForm" class="btn btn-add">신규 회원 등록</a>
     
     <table>
         <thead>
